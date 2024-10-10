@@ -1,0 +1,60 @@
+---
+---
+
+<header class="overflow-x-hidden flex flex-col justify-center items-center bg-gradient-to-t from-zinc-900 to-zinc-700">
+  <div>
+    <img src="/icono.png" alt="La Burgesia monteros" class="w-36 h-36 p-2 mt-4">
+  </div>
+  <nav class="flex gap-2 justify-around w-full">
+   
+    <a href="/hamburguesas" class=" p-2  rounded-md  font-semibold text-lg text-[#ECBD69] border-b-2 border-solid border-[#ECBD69] font-[Oswald]  pb-0" >BURGERS</a>
+    <a href="/papas"  class=" p-2  rounded-md  font-semibold text-lg text-[#ECBD69] border-b-2 border-solid border-[#ECBD69] font-[Oswald] pb-0" >PAPAS</a>
+    <a href="/pickers" class=" p-2  rounded-md  font-semibold text-lg text-[#ECBD69] border-b-2 border-solid border-[#ECBD69] font-[Oswald] pb-0" >PICKERS</a>
+  </nav>
+  <div id="cart-container " class="text-white text-lg bg-zinc-800 border-2 border-zinc-400 border-solid rounded-md mt-5 mb-5 p-2 flex flex-col gap-4">
+    <button id="cart-button">cuenta</button>
+    <div id="cart-dropdown" class="hidden">
+      <ul id="cart-items"></ul>
+      <p id="cart-total" class="bg-zinc-500 text-white rounded-md  mt-2">cuenta: $0</p>
+    </div>
+  </div>
+</header>
+
+<script>
+  import cartStore, { removeItem } from '../store/cartStore';
+
+  const cartButton = document.getElementById('cart-button');
+  const cartDropdown = document.getElementById('cart-dropdown');
+  const cartItemsList = document.getElementById('cart-items');
+  const cartTotalElement = document.getElementById('cart-total');
+
+  function updateCartDisplay(state) {
+    if (cartItemsList && cartTotalElement) {
+      cartItemsList.innerHTML = state.items.map(item => `
+        <li>
+          ${item.name} x${item.quantity} - $${item.totalPrice.toFixed(2)}
+          <button class="remove-item bg-red-400 rounded-sm" data-name="${item.name}">✖️</button>
+        </li>
+      `).join('');
+      cartTotalElement.textContent = `Total de cuenta: $${state.total.toFixed(2)}`;
+    }
+    cartButton.textContent = `Cuenta = ${state.total.toFixed(2)}`;
+  }
+  
+  cartStore.subscribe(updateCartDisplay);
+  updateCartDisplay(cartStore.getState());
+
+  cartButton.addEventListener('click', () => {
+    cartDropdown.classList.toggle('hidden');
+  });
+
+  document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('remove-item')) {
+      const itemName = e.target.getAttribute('data-name');
+      removeItem(itemName);
+    }
+  });
+</script>
+
+
+

@@ -1,0 +1,48 @@
+---
+export interface Props {
+  title: string;
+  items: { name: string; price: number }[];
+}
+
+const { title, items } = Astro.props;
+---
+
+<section class="menu-section">
+  <h2>{title}</h2>
+  <ul>
+    {items.map((item) => (
+      <li class="menu-item" data-price={item.price}>
+        <span class="item-name">{item.name}</span>
+        <span class="item-price">${item.price}</span>
+      </li>
+    ))}
+  </ul>
+</section>
+
+<style>
+  .menu-section {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 1rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: rgb(var(--accent-light));
+  }
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  .menu-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+  }
+  .item-name {
+    font-weight: bold;
+  }
+  .item-price {
+    color: rgb(var(--accent-light));
+  }
+</style>

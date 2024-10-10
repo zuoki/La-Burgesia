@@ -1,0 +1,62 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import ProductCard from '../components/ProductCard.astro';
+
+const pickers = [
+  {
+    name: 'Aros de Cebolla',
+    price: 1350,
+    ingredients: ['Cebolla', 'Rebozado especial', 'Salsa ranch'],
+    description: 'Aros de cebolla crujientes, perfectos para compartir.'
+  },
+  {
+    name: 'Nuggets',
+    price: 1800,
+    ingredients: ['Pollo', 'Rebozado crocante', 'Salsa barbacoa'],
+    description: 'Trozos de pollo jugoso con un rebozado crujiente.'
+  },
+  {
+    name: 'Mozzarella Sticks',
+    price: 2500,
+    ingredients: ['Queso mozzarella', 'Rebozado', 'Salsa marinara'],
+    description: 'Bastones de queso mozzarella fundente, acompañados de salsa marinara.'
+  },
+  {
+    name: 'Alitas BBQ',
+    price: 3100,
+    ingredients: ['Alitas de pollo', 'Salsa BBQ', 'Aderezo blue cheese'],
+    description: 'Alitas de pollo bañadas en nuestra salsa BBQ casera.'
+  }
+];
+---
+
+<Layout title="La Burgesia - Pickers">
+  <Header />
+  <main>
+    <h2 class="text-2xl font-extrabold font-sans">Nuestros Pickers</h2>
+    <div class="product-grid">
+      {pickers.map((picker) => (
+        <ProductCard {...picker} />
+      ))}
+    </div>
+  </main>
+</Layout>
+
+<style>
+  main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+  h2 {
+    color: #FF5A5F;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+</style>

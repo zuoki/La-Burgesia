@@ -1,0 +1,41 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es" >
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="La Burgesia - Hamburguesas, Papas y Pickers" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body >
+    <div class="bg-gradient-to-t from-zinc-950 to-[#876936]">
+
+      <slot />
+    </div>
+  </body>
+</html>
+<style is:global>
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+  :root {
+    --accent: 255, 90, 95;
+    --accent-light: 255, 215, 0;
+    --background: 248, 249, 250;
+  }
+  html {
+    font-family: system-ui, sans-serif;
+    background-color: rgb(var(--background));
+  }
+  body {
+    margin: 0;
+    padding: 0;
+  }
+</style>

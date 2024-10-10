@@ -1,0 +1,62 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import ProductCard from '../components/ProductCard.astro';
+
+const hamburguesas = [
+  {
+    name: 'Clásica',
+    price: 4100,
+    ingredients: ['Carne', 'Lechuga', 'Tomate', 'Queso', 'Salsa especial'],
+    description: 'Nuestra hamburguesa tradicional con ingredientes frescos.'
+  },
+  {
+    name: 'Doble Cheddar',
+    price: 3700,
+    ingredients: ['Doble carne', 'Doble queso cheddar', 'Bacon', 'Cebolla caramelizada'],
+    description: 'Para los amantes del queso, con doble carne y bacon crujiente.'
+  },
+  {
+    name: 'Veggie',
+    price: 5850,
+    ingredients: ['Medallón de lentejas', 'Lechuga', 'Tomate', 'Queso', 'Salsa de aguacate'],
+    description: 'Opción vegetariana deliciosa y nutritiva.'
+  },
+  {
+    name: 'BBQ',
+    price: 4700,
+    ingredients: ['Carne', 'Queso', 'Aros de cebolla', 'Bacon', 'Salsa BBQ'],
+    description: 'Sabor ahumado con nuestra salsa BBQ casera.'
+  }
+];
+---
+
+<Layout title="La Burgesia - Hamburguesas">
+  <Header />
+  <main>
+    <h2 class="text-2xl font-extrabold font-sans">Nuestras Hamburguesas</h2>
+    <div class="product-grid">
+      {hamburguesas.map((hamburguesa) => (
+        <ProductCard {...hamburguesa} />
+      ))}
+    </div>
+  </main>
+</Layout>
+
+<style>
+  main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+  h2 {
+    color: #FF5A5F;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+</style>

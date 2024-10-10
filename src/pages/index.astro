@@ -1,0 +1,74 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+
+const sections = [
+  { title: 'HAMBURGESAS', path: '/hamburguesas', image: 'https://saborusa.pe/wp-content/uploads/2020/08/hamburguesa.jpg' },
+  { title: 'PAPAS', path: '/papas', image: 'https://th.bing.com/th/id/R.57f097d78135ed1a0c71a8c69b4fb0d7?rik=UyGQRzzORj4hKA&pid=ImgRaw&r=0' },
+  { title: `PICKER'S`, path: '/pickers', image: 'https://www.gastrolabweb.com/u/fotografias/fotosnoticias/2021/6/18/15012.jpg' }
+];
+---
+
+<Layout title="La Burgesia - Menú" >
+  <Header />
+  <main >
+    <h2 class="text-2xl font-extrabold font-sans">Bienvenido a La Burgesia</h2>
+
+    <p class="description font-semibold text-lg">
+      Descubre nuestro delicioso menú de hamburguesas, papas y pickers.
+    </p>
+    <div class="menu-sections">
+      {sections.map((section) => (
+        <a href={section.path} class="section-card">
+          <img src={section.image} alt={section.title} />
+          <h3 class="text-xl font-semibold">{section.title}</h3>
+        </a>
+      ))}
+    </div>
+  </main>
+</Layout>
+
+<style>
+  main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+  h2 {
+    color: #FF5A5F;
+    text-align: center;
+  }
+  .description {
+    text-align: center;
+    color: #666;
+    margin-bottom: 2rem;
+  }
+  .menu-sections {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+  .section-card {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s ease;
+  }
+  .section-card:hover {
+    transform: translateY(-5px);
+  }
+  .section-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  .section-card h3 {
+    padding: 1rem;
+    margin: 0;
+    text-align: center;
+    color: #FF5A5F;
+  }
+</style>
