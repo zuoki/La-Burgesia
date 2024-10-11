@@ -1,6 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
 import ProductCard from '../components/ProductCard.astro';
 
 const hamburguesas = [
@@ -32,10 +31,9 @@ const hamburguesas = [
 ---
 
 <Layout title="La Burgesia - Hamburguesas">
-  <Header />
   <main>
     <h2 class="text-2xl font-extrabold font-sans">Nuestras Hamburguesas</h2>
-    <div class="product-grid">
+    <div class="grid gap-4">
       {hamburguesas.map((hamburguesa) => (
         <ProductCard {...hamburguesa} />
       ))}
@@ -54,9 +52,5 @@ const hamburguesas = [
     text-align: center;
     margin-bottom: 2rem;
   }
-  .product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-  }
+
 </style>

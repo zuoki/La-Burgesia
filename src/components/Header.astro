@@ -1,7 +1,7 @@
 ---
 ---
 
-<header class="overflow-x-hidden flex flex-col justify-center items-center bg-gradient-to-t from-zinc-900 to-zinc-700">
+<header class="overflow-x-hidden flex flex-col justify-center items-center bg-gradient-to-b from-[#53402A] to-[#201615]  overflow-y-hidden ">
   <div>
     <img src="/icono.png" alt="La Burgesia monteros" class="w-36 h-36 p-2 mt-4">
   </div>
@@ -11,11 +11,11 @@
     <a href="/papas"  class=" p-2  rounded-md  font-semibold text-lg text-[#ECBD69] border-b-2 border-solid border-[#ECBD69] font-[Oswald] pb-0" >PAPAS</a>
     <a href="/pickers" class=" p-2  rounded-md  font-semibold text-lg text-[#ECBD69] border-b-2 border-solid border-[#ECBD69] font-[Oswald] pb-0" >PICKERS</a>
   </nav>
-  <div id="cart-container " class="text-white text-lg bg-zinc-800 border-2 border-zinc-400 border-solid rounded-md mt-5 mb-5 p-2 flex flex-col gap-4">
+  <div id="cart-container " class="text-white text-lg bg-[#231815]- border-2 border-zinc-400 border-solid rounded-md mt-5 mb-5 p-2 flex flex-col gap-4">
     <button id="cart-button">cuenta</button>
     <div id="cart-dropdown" class="hidden">
       <ul id="cart-items"></ul>
-      <p id="cart-total" class="bg-zinc-500 text-white rounded-md  mt-2">cuenta: $0</p>
+      <p id="cart-total" class="bg-[#231815] text-white rounded-md  mt-2">cuenta: $0</p>
     </div>
   </div>
 </header>
@@ -55,6 +55,13 @@
     }
   });
 </script>
+
+<style>
+  header{
+    background-color: #231815;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='213' height='213' viewBox='0 0 120 120'%3E%3Cpolygon fill='%23000' fill-opacity='.1' points='120 0 120 60 90 30 60 0 0 0 0 0 60 60 0 120 60 120 90 90 120 60 120 0'/%3E%3C/svg%3E");
+  }
+</style>
 
 
 

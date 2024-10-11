@@ -1,6 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
 
 const sections = [
   { title: 'HAMBURGESAS', path: '/hamburguesas', image: 'https://saborusa.pe/wp-content/uploads/2020/08/hamburguesa.jpg' },
@@ -10,8 +9,8 @@ const sections = [
 ---
 
 <Layout title="La Burgesia - Menú" >
-  <Header />
-  <main >
+  <main class="w-full lg:h-[63.2vh] " >
+    
     <h2 class="text-2xl font-extrabold font-sans">Bienvenido a La Burgesia</h2>
 
     <p class="description font-semibold text-lg">
@@ -71,4 +70,5 @@ const sections = [
     text-align: center;
     color: #FF5A5F;
   }
+ 
 </style>
